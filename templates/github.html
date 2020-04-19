@@ -1,12 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <head>
+    <title>{{ title }}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">   
 
-    <title>GitHub contributions</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-</head>
+<!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Herr+Von+Muellerhoff" rel="stylesheet">
+
+<!-- css needed for page to run -->
+   <link rel="stylesheet" href="css/animate.css">
+   <link rel="stylesheet" href="css/owl.carousel.min.css">
+   <link rel="stylesheet" href="css/style.css">
+   <link href="https://fonts.googleapis.com/css?family=Arvo|PT+Serif&display=swap" rel="stylesheet"> 
+   <link rel="stylesheet" href="css/stylesheet.css">
+
+  </head>
+  <body>
+
+<!-- Navigation Sidebar, Image -->
+    <div id="colorlib-page">
+        <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
+        <aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
+            <h1 id="colorlib-logo"><a href="./index.html"><span class="img" style="background-image: url(./images/AliceColor.jpg);"></span>Alice Yang</a></h1>
+            <nav id="colorlib-main-menu" role="navigation">
+
+
+<!-- Navigation Sidebar Links -->
+
+{% set active_page = title %}
+{% for page in pages %}
+
+<p class="nav-item">
+  <a class="nav-link {% if page.title == active_page %}active{% endif %}" href="{{ page.file_name }}">{{ page.title }}</a>
+
+{% endfor %}
+
+
+</aside>
+
+
+<!-- end colorlib main -->
+  </div> 
+
+<!-- end colorlib-page -->
+  </div> 
 
 <body>
     <div class="container">
@@ -14,10 +54,9 @@
 
         <div class="col-sm-8">
             <h1>My github repos</h1>
-            <p><a href="/">Back to the homepage</a></p>
             <ol>
             {% for repo in github_repos %}
-                <li>{{ repo.name }}</li>
+                <li><a href="https://github.com/a-stargazer/{{ repo.name }}">{{ repo.name }}</a></li>
             {% endfor %}
             </ol>
         </div>
