@@ -1,9 +1,7 @@
-<!-- top.html -->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>{{title}}</title>
+    <title>{% block title %} {% endblock %}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">   
 
@@ -42,19 +40,17 @@
 {% endfor %}
 
 
-<!-- End Colorlib Aside -->
-        </aside>
+</aside>
 
-<!-- content placeholder -->
 
-{{ content|safe }}
-
-<!-- bottom.html -->
 <!-- end colorlib main -->
   </div> 
 
 <!-- end colorlib-page -->
   </div> 
+
+  {% block content %}
+  {% endblock content %}
 
 <!-- Copyright footer -->
 <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
