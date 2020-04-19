@@ -1,3 +1,6 @@
+# This file has the "routing" -- it associates "view functions" (found in
+# views.py) with different paths.
+
 from django.urls import path
 
 import views
@@ -7,10 +10,14 @@ urlpatterns = [
     path('', views.index),
     path('about-me', views.about_me),
     path('github-api-example', views.github_api_example),
+    path("newstuff", views.newstuff)
 ]
 
-# Boilerplate to include static files
+# Boilerplate to include static files.
+# Static files include CSS and images -- basically anything that isn't HTML or
+# Python code -- stuff we just want to "serve up" for the browser to download
+# and utilize and won't be changed by Python code (hence the term "static").
 from django.conf import settings
 from django.conf.urls.static import static
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static('static/', document_root=settings.STATIC_ROOT)
 
