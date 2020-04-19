@@ -1,33 +1,23 @@
-import utils 
+# This is all boilerplate, don't touch this file for now!
 import sys
+import os
+from django.conf import settings
+from django.core.management import execute_from_command_line
 
-def main():
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-    try:
-	    command = sys.argv[1]
+settings.configure(
+    DEBUG=True,
+    ROOT_URLCONF='urls',
+    STATIC_URL='static/',
+    STATIC_ROOT=os.path.join(BASE_DIR, 'static'),
+    INSTALLED_APPS=[
+        'django.contrib.staticfiles',
+    ],
+    TEMPLATES=[{
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+    }],
+)
 
-	    # build the site 
-	    if command == "build":
-		    pages = utils.find_pages()
-		    utils.create_pages(pages)
-		    print("Build was specified")
-
-	    # create "content/new_content_page.html"
-	    elif command == "new":
-		    utils.new_page()
-		    print("New page was specified")
-
-	    else:
-		    print("Please specify 'build' or 'new'")
-
-    # if user tries "python manage.py"
-    except:
-        print("""
-Usage:
-	Rebuild site:    python manage.py build
-	Create new page: python manage.py new
-	""")
-
-# invoke main
-main()
-
+execute_from_command_line(sys.argv)
