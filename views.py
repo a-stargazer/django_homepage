@@ -17,3 +17,10 @@ def blog(request):
     context = {}
     return render(request, 'blog.html', context)
 
+def github_api(request):
+	response = requests.get("https://api.github.com/users/a-stargazer/repos")
+	repos = response.json()
+	context = {
+	    "github_repos": repos,
+	}
+	return render(request, 'github.html', context)

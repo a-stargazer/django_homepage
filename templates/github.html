@@ -1,71 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>{{ title }}</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">   
+{% extends "base.html" %}
+{% block title %} Github Repos {% endblock title %}
 
-<!-- fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Herr+Von+Muellerhoff" rel="stylesheet">
-
-<!-- css needed for page to run -->
-   <link rel="stylesheet" href="css/animate.css">
-   <link rel="stylesheet" href="css/owl.carousel.min.css">
-   <link rel="stylesheet" href="css/style.css">
-   <link href="https://fonts.googleapis.com/css?family=Arvo|PT+Serif&display=swap" rel="stylesheet"> 
-   <link rel="stylesheet" href="css/stylesheet.css">
-
-  </head>
-  <body>
-
-<!-- Navigation Sidebar, Image -->
-    <div id="colorlib-page">
-        <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
-        <aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
-            <h1 id="colorlib-logo"><a href="./index.html"><span class="img" style="background-image: url(./images/AliceColor.jpg);"></span>Alice Yang</a></h1>
-            <nav id="colorlib-main-menu" role="navigation">
-
-
-<!-- Navigation Sidebar Links -->
-
-{% set active_page = title %}
-{% for page in pages %}
-
-<p class="nav-item">
-  <a class="nav-link {% if page.title == active_page %}active{% endif %}" href="{{ page.file_name }}">{{ page.title }}</a>
-
-{% endfor %}
-
-
-</aside>
-
-
-<!-- end colorlib main -->
-  </div> 
-
-<!-- end colorlib-page -->
-  </div> 
-
-<body>
+<div id="colorlib-main">
+  <section class="ftco-section ftco-bread">
     <div class="container">
-      <div class="row">
+      <div class="row no-gutters slider-text justify-content-center align-items-center">
+          </div>
+        }
+    </div>
+    </section>
 
-        <div class="col-sm-8">
-            <h1>My github repos</h1>
-            <ol>
-            {% for repo in github_repos %}
-                <li><a href="https://github.com/a-stargazer/{{ repo.name }}">{{ repo.name }}</a></li>
-            {% endfor %}
-            </ol>
+{% block content %}
+
+<!-- Projects -->
+<section class="ftco-section">
+<div class="container">
+  <div class="row d-flex">
+      <div class="col-lg-12">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="blog-entry ftco-animate d-md-flex">
+              <a href="single.html" class="img img-2" style="background-image: url(./static/images/web_design.png);"></a>
+          <div class="text text-2 p-4">
+                <h3 class="mb-12" id="git-contain">Github Repos</a></h3>
+                <div class="meta-wrap">
+              <p class="meta"></p>
+                  </div>
+                  <ol id="git-links">
+                    {% for repo in github_repos %}
+                  <li><a id="git-links" href="https://github.com/a-stargazer/{{ repo.name }}">{{ repo.name }}</a></li>
+                    {% endfor %}
+            </div>
         </div>
       </div>
 
-    </div>
-</body>
-</html>
+<div id="colorlib-main"> 
+<section class="ftco-section-no-padding bg-light">
+</section>  
 
-
-
-
+{% endblock content %}
